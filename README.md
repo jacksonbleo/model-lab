@@ -54,6 +54,11 @@ Open `.env` in any text editor and replace the placeholder values with your actu
 
 ```
 LEONARDO_API_KEY=your_key_here
+```
+
+Optional:
+
+```
 ANTHROPIC_API_KEY=sk-ant-your_key_here
 ```
 
