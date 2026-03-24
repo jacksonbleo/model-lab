@@ -22,7 +22,7 @@ Built as a learning tool for designers exploring AI-native product thinking, mod
 Before you start, you'll need:
 
 - **Node.js v18 or higher**, download from [nodejs.org](https://nodejs.org)
-- **A Leonardo AI API key**, sign up at [app.leonardo.ai](https://app.leonardo.ai), then go to Settings → API
+- **A Leonardo AI API key**, sign in to [app.leonardo.ai](https://app.leonardo.ai), then go to API
 - **An Anthropic API key**, get one at [console.anthropic.com](https://console.anthropic.com)
 
 ---
