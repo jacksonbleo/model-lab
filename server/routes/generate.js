@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const db = require('../db/database')
+const { runInsert } = require('../db/database')
 
 // ─────────────────────────────────────────────
 //  POST /api/generate
@@ -103,17 +103,10 @@ router.post('/', async (req, res) => {
       )
 
       // Save to database
-      const stmt = db.prepare(`
-        INSERT INTO generations (prompt, refined_prompt, model, image_url, latency_ms, cost_usd)
-        VALUES (?, ?, ?, ?, ?, ?)
-      `)
-      const info = stmt.run(
-        prompt,
-        refinedPrompt || null,
-        model.name,
-        imageUrl,
-        latencyMs,
-        model.costPerImage
+      const info = runInsert(
+        `INSERT INTO generations (prompt, refined_prompt, model, image_url, latency_ms, cost_usd)
+         VALUES (?, ?, ?, ?, ?, ?)`,
+        [prompt, refinedPrompt || null, model.name, imageUrl, latencyMs, model.costPerImage]
       )
 
       results.push({

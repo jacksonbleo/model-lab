@@ -3,6 +3,7 @@ const cors = require('cors')
 const path = require('path')
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') })
 
+const { getDb } = require('./db/database')
 const generateRoute = require('./routes/generate')
 const refinePromptRoute = require('./routes/refinePrompt')
 const historyRoute = require('./routes/history')
@@ -27,8 +28,11 @@ app.get('/api/health', (req, res) => {
   })
 })
 
-app.listen(PORT, () => {
-  console.log(`\n🚀 Model Lab server running on http://localhost:${PORT}`)
-  console.log(`   Leonardo key: ${process.env.LEONARDO_API_KEY ? '✅ set' : '❌ missing'}`)
-  console.log(`   Anthropic key: ${process.env.ANTHROPIC_API_KEY ? '✅ set' : '❌ missing'}\n`)
+// Initialize database, then start server
+getDb().then(() => {
+  app.listen(PORT, () => {
+    console.log(`\n🚀 Model Lab server running on http://localhost:${PORT}`)
+    console.log(`   Leonardo key: ${process.env.LEONARDO_API_KEY ? '✅ set' : '❌ missing'}`)
+    console.log(`   Anthropic key: ${process.env.ANTHROPIC_API_KEY ? '✅ set' : '❌ missing'}\n`)
+  })
 })

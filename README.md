@@ -23,7 +23,6 @@ Before you start, you'll need:
 
 - **Cursor**, download from [cursor.com](https://www.cursor.com/)
 - **Node.js v18 or higher**, download from [nodejs.org](https://nodejs.org)
-- **Xcode Command Line Tools** (macOS only) — required to compile the SQLite database package. Open Terminal and run `xcode-select --install`, then follow the prompts. If you already have them, the command will tell you.
 - **A Leonardo AI API key**, sign in to [app.leonardo.ai](https://app.leonardo.ai), then go to API
 - **Optional:** 
   - **An Anthropic API key**, get one at [console.anthropic.com](https://console.anthropic.com)
@@ -162,7 +161,7 @@ The goal is to get comfortable prompting Claude Code iteratively, describe what 
 | Frontend          | React + Vite            | Fast dev server, industry standard          |
 | UI                | Shadcn + Tailwind v4    | Component library used at Leonardo          |
 | Backend           | Express (Node.js)       | Simple, well-documented API server          |
-| Database          | SQLite (better-sqlite3) | Local, zero-config, no account needed       |
+| Database          | SQLite (sql.js)         | Local, zero-config, no account needed       |
 | Image gen         | Leonardo AI API         | Multi-model image generation with cost data |
 | Prompt refinement | Anthropic Claude API    | LLM-assisted prompt improvement             |
 | Dev tooling       | concurrently            | Run client + server with one command        |

@@ -24,7 +24,7 @@ async function checkSetup() {
   // 1. Check .env file exists and has required keys
   console.log('\n📋 Environment Variables\n')
 
-  const required = ['LEONARDO_API_KEY', 'ANTHROPIC_API_KEY']
+  const required = ['LEONARDO_API_KEY']
   for (const key of required) {
     if (process.env[key] && !process.env[key].includes('your_')) {
       console.log(`  ${CHECK} ${key} found`)

@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const db = require('../db/database')
+const { queryAll } = require('../db/database')
 
 // ─────────────────────────────────────────────
 //  GET /api/history
@@ -9,11 +9,11 @@ const db = require('../db/database')
 
 router.get('/', (req, res) => {
   try {
-    const generations = db.prepare(`
+    const generations = queryAll(`
       SELECT * FROM generations
       ORDER BY created_at DESC
       LIMIT 100
-    `).all()
+    `)
 
     res.json({ generations })
   } catch (err) {
